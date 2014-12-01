@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>	
+	<head>
+		<title>tunaBagel test</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var require = {
+				baseUrl : "/"
+			};
+		</script>
+		<script src="/scripts/require.js"></script>
+		<script type="text/javascript">
+			require(["play/write", 
+				"tuna/base/declare", 
+				"play/One", 
+				"play/Two",
+				"play/Three"], function play (write, declare, One, Two, Three) {
+				write("BOO!");
+				var Obj = declare();
+				obj = new Obj;
+				write(typeof obj);
+
+				var three = new Three;
+				var three2 = new Three;
+				var two = new Two;
+				function isIsNot(bool){
+					return "is" + (bool? "" : " not");
+				}
+
+				write("three " + isIsNot(three instanceof One) + " instance of One");
+				write("three " + isIsNot(three instanceof function(){}) + " instance of {}");
+				console.dir(three);
+
+				//two.shmigegi();
+				//three.shmigegi();
+
+
+				write(two.declaredClass);
+				write(three.declaredClass);
+
+				var one = new One;
+				write(one.declaredClass);
+
+
+			});
+		</script>
+	</body>
+</html>
